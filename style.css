@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu', sans-serif;
+
+}
+
+p {
+    margin-top: 0.3rem;
+}
+
+
+header {
+    max-width: 1200px;
+    height: 12rem;
+    margin: 0 auto;
+    background-color: black;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-content: space-between;
+}
+
+main aside {
+    width: 25%;
+    height: calc(100vh - 12rem);
+    overflow-y: auto;
+}
+
+
+main aside li {
+    color: white;
+    background-color: #12b0c9;
+    height: 3rem;
+    padding-top: 2rem;
+    list-style: none;
+    text-align: center;
+    margin-bottom: 1px;
+}
+
+main aside a {
+    color: white;
+    text-decoration: none;
+}
+
+main aside li:hover {
+    background-color: #128da0;
+}
+
+
+
+section {
+    width: 75%;
+    background-image: url(assets/rickmorty-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: calc(100vh - 12rem);
+    display: flex;
+
+}
+/* titulo y episodios */
+section .content-episodes {
+    margin: 30px;
+    width: 100%;
+    background-color: #e5e5e5;
+    padding: 0.4rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.content-episodes .inf-episode {
+    width: 100%;
+    border-bottom: 1px solid black;
+    align-self: flex-start;
+}
+
+.content-episodes .episodes {
+    width: 24%;
+    background-color: red;
+    height: 13rem;
+}
