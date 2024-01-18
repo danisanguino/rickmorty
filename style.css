@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     font-family: 'Ubuntu', sans-serif;
-
 }
 
 p {
@@ -33,58 +32,129 @@ main aside {
     overflow-y: auto;
 }
 
+main aside .tittle-episodes {
+    background-color: #02d900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 6rem;
+    border-bottom: solid 1px white;
+
+}
+
+main aside .tittle-episodes h2 {
+    font-family: 'Indie Flower', cursive;
+    font-size: 2rem;
+    color: white;
+}
 
 main aside li {
     color: white;
     background-color: #12b0c9;
-    height: 3rem;
-    padding-top: 2rem;
+    height: 5rem;
+    padding: 0 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: left;
     list-style: none;
-    text-align: center;
-    margin-bottom: 1px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 1px;cursor: pointer;
 }
 
 main aside a {
     color: white;
     text-decoration: none;
+    
 }
 
 main aside li:hover {
     background-color: #128da0;
+    /* color: #02d900; */
 }
 
+main aside button {
+    background-color:  #02d900;
+    color: white;
+    height: 3rem;
+    width: 100%;
+    text-align: center;
+    border: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
 
+main aside button:hover {
+    background-color: black;
+}
+
+/* CHANGE SECTION */
 
 section {
-    width: 75%;
+    width: 100%;
     background-image: url(assets/rickmorty-bg.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     height: calc(100vh - 12rem);
-    display: flex;
+
 
 }
 /* titulo y episodios */
-section .content-episodes {
-    margin: 30px;
-    width: 100%;
+section .content-characters {
+    margin: 3rem;
+    padding: 1.5rem;
+    max-width: 100vh;
     background-color: #e5e5e5;
-    padding: 0.4rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    gap: 2.2rem;
+    align-content: space-between;
+
 }
 
-.content-episodes .inf-episode {
+.content-characters .inf-episode {
     width: 100%;
-    border-bottom: 1px solid black;
-    align-self: flex-start;
+    border-bottom: 1px solid #12b0c9;
+    padding-top: 0.6rem;
 }
 
-.content-episodes .episodes {
-    width: 24%;
-    background-color: red;
-    height: 13rem;
+.content-characters .inf-episode h1 {
+    font-size: 3rem;
+    font-family: 'Indie Flower', cursive;
 }
+
+.content-characters .inf-episode p {
+    color: grey;
+    margin-bottom: 0.5rem;
+}
+
+.content-characters .episodes {
+    width: 11rem;
+}
+
+.content-characters .episodes p{
+    font-size: 1rem;
+    color: grey;
+}
+
+.content-characters .episodes span{
+    font-size: 1rem;
+    color: grey;
+}
+
+.content-characters .episodes h3{
+    font-size: 1.2rem;
+    color: #128da0;
+
+}
+
+.content-characters img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+
+
+

@@ -7,24 +7,57 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-function getEpisodes() {
+function getTitleEpisodes() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const tittleEpisode = yield fetch("https://rickandmortyapi.com/api/episode");
-            const data = yield tittleEpisode.json();
+            const response = yield fetch("https://rickandmortyapi.com/api/episode");
+            const data = yield response.json();
             const episodes = data.results;
             episodes.forEach(episode => {
-                console.log(episode);
                 const container = document.querySelector("#episodes");
                 const liEpisode = document.createElement("li");
                 liEpisode.textContent = episode.name;
-                container === null || container === void 0 ? void 0 : container.appendChild(liEpisode);
+                container.appendChild(liEpisode);
             });
+            return data;
         }
         catch (error) {
-            console.log(error);
+            throw new Error("Fail su puta madre");
         }
     });
 }
-getEpisodes();
+getTitleEpisodes()
+    .then((dataResults) => {
+    getMoreTitles(dataResults);
+});
+function getMoreTitles(dataResults) {
+    const loadMoreButton = document.querySelector("#loadMore");
+    let checkEvent = true;
+    loadMoreButton.addEventListener("click", () => {
+        if (checkEvent) {
+            checkEvent = false;
+            printMoreTitles(dataResults);
+        }
+    });
+}
+function printMoreTitles(dataResults) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            if (dataResults.info.next) {
+                const response = yield fetch(dataResults.info.next);
+                const data = yield response.json();
+                const episodes = data.results;
+                episodes.forEach(episode => {
+                    const container = document.querySelector("#episodes");
+                    const liEpisode = document.createElement("li");
+                    liEpisode.textContent = episode.name;
+                    container.appendChild(liEpisode);
+                });
+            }
+        }
+        catch (error) {
+            throw new Error("Alitas de pollo");
+        }
+    });
+}
 export {};
