@@ -7,57 +7,41 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-function getTitleEpisodes() {
+const urlRM = 'https://rickandmortyapi.com/api/episode';
+function printTitle(url) {
     return __awaiter(this, void 0, void 0, function* () {
-        try {
-            const response = yield fetch("https://rickandmortyapi.com/api/episode");
-            const data = yield response.json();
-            const episodes = data.results;
-            episodes.forEach(episode => {
-                const container = document.querySelector("#episodes");
-                const liEpisode = document.createElement("li");
-                liEpisode.textContent = episode.name;
-                container.appendChild(liEpisode);
-            });
-            return data;
+        const data = yield fetch(url);
+        const JSONdata = yield data.json();
+        const episodes = JSONdata.results;
+        const episodesList = document.getElementById('episodes');
+        const nextBtn = document.getElementById('loadMore');
+        episodes.forEach((e) => {
+            episodesList.insertAdjacentHTML('beforeend', `<li id="episode-${e.id}" episodeURL="${e.url}">${e.name}</li>`);
+            const chargeCharacter = document.getElementById(`episode-${e.id}`);
+            chargeCharacter.addEventListener("click", getCharacteres);
+        });
+        if (JSONdata.info.next) {
+            nextBtn.addEventListener('click', () => {
+                printTitle(JSONdata.info.next);
+            }, { once: true });
         }
-        catch (error) {
-            throw new Error("Fail su puta madre");
+        else {
+            nextBtn.remove();
         }
     });
 }
-getTitleEpisodes()
-    .then((dataResults) => {
-    getMoreTitles(dataResults);
-});
-function getMoreTitles(dataResults) {
-    const loadMoreButton = document.querySelector("#loadMore");
-    let checkEvent = true;
-    loadMoreButton.addEventListener("click", () => {
-        if (checkEvent) {
-            checkEvent = false;
-            printMoreTitles(dataResults);
-        }
-    });
-}
-function printMoreTitles(dataResults) {
+printTitle(urlRM);
+function getCharacteres(clickBtn) {
     return __awaiter(this, void 0, void 0, function* () {
-        try {
-            if (dataResults.info.next) {
-                const response = yield fetch(dataResults.info.next);
-                const data = yield response.json();
-                const episodes = data.results;
-                episodes.forEach(episode => {
-                    const container = document.querySelector("#episodes");
-                    const liEpisode = document.createElement("li");
-                    liEpisode.textContent = episode.name;
-                    container.appendChild(liEpisode);
-                });
-            }
-        }
-        catch (error) {
-            throw new Error("Alitas de pollo");
-        }
+        const target = clickBtn.target;
+        const urlEpisode = target.getAttribute("episodeURL");
+        const data = yield fetch(urlEpisode);
+        const JSONdata = yield data.json();
+        const showInfo = `<h1>${JSONdata.name}</h1>
+                    <p>${JSONdata.air_date}</p>
+                    <p>${JSONdata.episode}</p>`;
+        const wherePrint = document.getElementById("info-episode");
+        wherePrint.innerHTML = showInfo;
     });
 }
 export {};

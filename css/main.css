@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'RickMorty';
+    src: url('../fonts/get_schwifty.ttf'); 
+  }
+
 *{
     margin: 0;
     padding: 0;
@@ -8,9 +13,12 @@ p {
     margin-top: 0.3rem;
 }
 
+body {
+    background-image: url(../assets/bg-mosaic-RM.jpg)
+}
 
 header {
-    max-width: 1200px;
+    max-width: 1800px;
     height: 12rem;
     margin: 0 auto;
     background-color: black;
@@ -20,20 +28,20 @@ header {
 }
 
 main {
-    max-width: 1200px;
+    max-width: 1800px;
     margin: 0 auto;
     display: flex;
     align-content: space-between;
 }
 
 main aside {
-    width: 25%;
+    width: 30%;
     height: calc(100vh - 12rem);
     overflow-y: auto;
 }
 
 main aside .tittle-episodes {
-    background-color: #02d900;
+    background-color: var(--green);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,22 +51,24 @@ main aside .tittle-episodes {
 }
 
 main aside .tittle-episodes h2 {
-    font-family: 'Indie Flower', cursive;
+    font-family: 'RickMorty', cursive;
+    text-shadow: -1px -1px 0 black, 2px -1px 0 black, -1px 2px 0 black, 1px 1px 0 black; 
     font-size: 2rem;
     color: white;
 }
 
 main aside li {
     color: white;
-    background-color: #12b0c9;
+    background-color: var(--primary-color);;
     height: 5rem;
     padding: 0 0.7rem;
     display: flex;
     align-items: center;
     justify-content: left;
     list-style: none;
-    transition: background-color 0.3s ease;
-    margin-bottom: 1px;cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    border-bottom: 1px solid white;
 }
 
 main aside a {
@@ -69,11 +79,12 @@ main aside a {
 
 main aside li:hover {
     background-color: #128da0;
+    transform: translateX(10px);
     /* color: #02d900; */
 }
 
 main aside button {
-    background-color:  #02d900;
+    background-color: var(--green);
     color: white;
     height: 3rem;
     width: 100%;
@@ -92,20 +103,19 @@ main aside button:hover {
 
 section {
     width: 100%;
-    background-image: url(assets/rickmorty-bg.jpg);
+    background-image: url(../assets/rickmorty-bg.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: calc(100vh - 12rem);
+    /* height: calc(100vh - 12rem); */
 
 
 }
-/* titulo y episodios */
+/* TITLES AND EPISODES */
 section .content-characters {
     margin: 3rem;
     padding: 1.5rem;
-    max-width: 100vh;
-    background-color: #e5e5e5;
+    background-color: var(--bg-grey);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-flow: row wrap;
@@ -116,18 +126,21 @@ section .content-characters {
 
 .content-characters .inf-episode {
     width: 100%;
-    border-bottom: 1px solid #12b0c9;
+    border-bottom: 1px solid var(--primary-color);
     padding-top: 0.6rem;
 }
 
 .content-characters .inf-episode h1 {
-    font-size: 3rem;
-    font-family: 'Indie Flower', cursive;
+    font-size: 4rem;
+    font-family: 'RickMorty';
+    color: var(--green);
+    text-shadow: -1px -1px 0 black, 2px -1px 0 black, -1px 2px 0 black, 1px 1px 0 black; 
 }
 
 .content-characters .inf-episode p {
     color: grey;
     margin-bottom: 0.5rem;
+    margin-top: 0.7rem;
 }
 
 .content-characters .episodes {
@@ -146,7 +159,7 @@ section .content-characters {
 
 .content-characters .episodes h3{
     font-size: 1.2rem;
-    color: #128da0;
+    color: var(--secondary-color);
 
 }
 
