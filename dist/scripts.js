@@ -42,6 +42,18 @@ function getCharacteres(clickBtn) {
                     <p>${JSONdata.episode}</p>`;
         const wherePrint = document.getElementById("info-episode");
         wherePrint.innerHTML = showInfo;
+        const charactersData = JSONdata.characters;
+        charactersData.forEach((urlCharacter) => __awaiter(this, void 0, void 0, function* () {
+            const data = yield fetch(urlCharacter);
+            const JSONdata = yield data.json();
+            const infoCharacterPrint = `<img src=${JSONdata.image}>
+                    <h3 id="character-name">${JSONdata.name}</h3>
+                    <span id="character-type">${JSONdata.species}</span> | 
+                    <span id="character-status">${JSONdata.status}</span> 
+                    `;
+            const wherePrint = document.getElementById("info-episode");
+            wherePrint.insertAdjacentHTML("beforeend", infoCharacterPrint);
+        }));
     });
 }
 export {};

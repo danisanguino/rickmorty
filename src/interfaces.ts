@@ -21,3 +21,36 @@ export interface Episode {
     url:        string;
     created:    string;
 }
+
+export interface DataCharacteres {
+    id:       number;
+    name:     string;
+    status:   CharacterStatus;
+    species:  string;
+    type:     string;
+    gender:   CharacterGender;
+    origin:   Location;
+    location: Location;
+    image:    string;
+    episode:  string[];
+    url:      string;
+    created:  string;
+}
+
+export interface Location {
+    name: string;
+    url:  string;
+}
+
+
+enum CharacterStatus {
+    Alive = "Alive",
+    Dead = "Dead",
+    Unknow = "Unknown",
+}
+
+enum CharacterGender {
+    Male = "Male",
+    Female = "Female",
+    Unknown = "Unknown",
+}

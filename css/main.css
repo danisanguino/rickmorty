@@ -23,9 +23,16 @@ header {
     margin: 0 auto;
     background-color: black;
     display: flex;
+    text-align: center;
     align-items: flex-end;
     justify-content: center;
+
 }
+
+header p {
+    color: white;
+}
+
 
 main {
     max-width: 1800px;
@@ -66,7 +73,7 @@ main aside li {
     align-items: center;
     justify-content: left;
     list-style: none;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease;
     cursor: pointer;
     border-bottom: 1px solid white;
 }
@@ -79,8 +86,7 @@ main aside a {
 
 main aside li:hover {
     background-color: #128da0;
-    transform: translateX(10px);
-    /* color: #02d900; */
+
 }
 
 main aside button {
@@ -126,7 +132,7 @@ section .content-characters {
 
 .content-characters .inf-episode {
     width: 100%;
-    border-bottom: 1px solid var(--primary-color);
+    /* border-bottom: 1px solid var(--primary-color); */
     padding-top: 0.6rem;
 }
 

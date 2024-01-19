@@ -1,4 +1,4 @@
-import { Main, Info, Episode } from "./interfaces";
+import { Main, Info, Episode, DataCharacteres } from "./interfaces";
 
 
 const urlRM = 'https://rickandmortyapi.com/api/episode';
@@ -51,9 +51,26 @@ async function getCharacteres(clickBtn: MouseEvent) {
                     <p>${JSONdata.episode}</p>`;
 
   const wherePrint = document.getElementById("info-episode") as HTMLDivElement;
-  // wherePrint.innerHTML = "";
-  // wherePrint.insertAdjacentHTML("beforeend", showInfo);
+
   wherePrint.innerHTML = showInfo;
   
+  const charactersData = JSONdata.characters;
+  
+  charactersData.forEach(async urlCharacter => {
+
+    const data = await fetch(urlCharacter);
+    const JSONdata: DataCharacteres = await data.json();
+
+    const infoCharacterPrint = 
+                    `<img src=${JSONdata.image}>
+                    <h3 id="character-name">${JSONdata.name}</h3>
+                    <span id="character-type">${JSONdata.species}</span> | 
+                    <span id="character-status">${JSONdata.status}</span> 
+                    `;
+
+    const wherePrint = document.getElementById("info-episode") as HTMLDivElement;
+    wherePrint.insertAdjacentHTML("beforeend",infoCharacterPrint);
+
+  });
 
 } 
