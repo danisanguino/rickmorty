@@ -19,6 +19,9 @@ async function printTitle(url:string) {
     episodesList.insertAdjacentHTML('beforeend', `<li id="episode-${e.id}" episodeURL="${e.url}">${e.name}</li>`);
     const chargeCharacter = document.getElementById(`episode-${e.id}`) as HTMLLIElement ;
     chargeCharacter.addEventListener("click", getCharacteres);
+    //aqui poner la orden de eliminar y poner estilo display none
+    
+
   });
 
   //Enterearme de esto mejor BOTON PAGINADO
@@ -46,11 +49,13 @@ async function getCharacteres(clickBtn: MouseEvent) {
   const data = await fetch(urlEpisode);
   const JSONdata: Episode = await data.json();
   
-  const showInfo = `<h1>${JSONdata.name}</h1>
+  const showInfo = `<div class="inf-episode">
+                    <h1>${JSONdata.name}</h1>
                     <p>${JSONdata.air_date}</p>
-                    <p>${JSONdata.episode}</p>`;
+                    <p>${JSONdata.episode}</p>
+                    <div>`;
 
-  const wherePrint = document.getElementById("info-episode") as HTMLDivElement;
+  const wherePrint = document.getElementById("characteres") as HTMLDivElement;
 
   wherePrint.innerHTML = showInfo;
   
@@ -62,14 +67,24 @@ async function getCharacteres(clickBtn: MouseEvent) {
     const JSONdata: DataCharacteres = await data.json();
 
     const infoCharacterPrint = 
-                    `<img src=${JSONdata.image}>
-                    <h3 id="character-name">${JSONdata.name}</h3>
-                    <span id="character-type">${JSONdata.species}</span> | 
-                    <span id="character-status">${JSONdata.status}</span> 
-                    `;
+                    `<div class="episode">
+                    <img src=${JSONdata.image}>
+                    <h3>${JSONdata.name}</h3>
+                    <span>${JSONdata.species}</span> | 
+                    <span>${JSONdata.status}</span> 
+                    </div>`;
 
-    const wherePrint = document.getElementById("info-episode") as HTMLDivElement;
+    const wherePrint = document.getElementById("characteres") as HTMLDivElement;
     wherePrint.insertAdjacentHTML("beforeend",infoCharacterPrint);
+
+    const welcomePage = document.getElementById("intro");
+    const characterPage = document.getElementById("characteres");
+
+    const firstStep = function () {
+      welcomePage?.classList.add("hide");
+      characterPage?.classList.remove("hide");
+    };
+    firstStep();
 
   });
 

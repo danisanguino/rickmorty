@@ -37,22 +37,32 @@ function getCharacteres(clickBtn) {
         const urlEpisode = target.getAttribute("episodeURL");
         const data = yield fetch(urlEpisode);
         const JSONdata = yield data.json();
-        const showInfo = `<h1>${JSONdata.name}</h1>
+        const showInfo = `<div class="inf-episode">
+                    <h1>${JSONdata.name}</h1>
                     <p>${JSONdata.air_date}</p>
-                    <p>${JSONdata.episode}</p>`;
-        const wherePrint = document.getElementById("info-episode");
+                    <p>${JSONdata.episode}</p>
+                    <div>`;
+        const wherePrint = document.getElementById("characteres");
         wherePrint.innerHTML = showInfo;
         const charactersData = JSONdata.characters;
         charactersData.forEach((urlCharacter) => __awaiter(this, void 0, void 0, function* () {
             const data = yield fetch(urlCharacter);
             const JSONdata = yield data.json();
-            const infoCharacterPrint = `<img src=${JSONdata.image}>
-                    <h3 id="character-name">${JSONdata.name}</h3>
-                    <span id="character-type">${JSONdata.species}</span> | 
-                    <span id="character-status">${JSONdata.status}</span> 
-                    `;
-            const wherePrint = document.getElementById("info-episode");
+            const infoCharacterPrint = `<div class="episode">
+                    <img src=${JSONdata.image}>
+                    <h3>${JSONdata.name}</h3>
+                    <span>${JSONdata.species}</span> | 
+                    <span>${JSONdata.status}</span> 
+                    </div>`;
+            const wherePrint = document.getElementById("characteres");
             wherePrint.insertAdjacentHTML("beforeend", infoCharacterPrint);
+            const welcomePage = document.getElementById("intro");
+            const characterPage = document.getElementById("characteres");
+            const firstStep = function () {
+                welcomePage === null || welcomePage === void 0 ? void 0 : welcomePage.classList.add("hide");
+                characterPage === null || characterPage === void 0 ? void 0 : characterPage.classList.remove("hide");
+            };
+            firstStep();
         }));
     });
 }

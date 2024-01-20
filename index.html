@@ -12,7 +12,6 @@
 <body>
 
     <header>
-       
         <img src="assets/rickmorty-header.jpg">
     </header>
 
@@ -26,16 +25,26 @@
             </ul>
             <button class="load-more" id="loadMore">Load more...</button>
         </aside>
-
+        <!-- CONTENIDO DINAMICO DE LA WEB -->
         <section>
+            <div class="content-intro" id="intro">
+                <h1>Welcome to Rick and Morty characters info</h1>
+                <p>Everthing you need to know aobut the characters</p>
+                <img src="assets/intro-rick-and-mory-web-api.png">
+             </div>
             <!-- Div que cambiaran según se pulse el episodio -->
-            <div class="content-characters" id="characteres">
-                <div class="inf-episode" id="info-episode"></div>
-                <div class="episodes" id="characteres">
-                    <img src="assets/rickmorty-bg.jpg" id="img-character">
-                    <h3 id="character-name">Name of Character</h3>
-                    <span id="character-type">Human</span> | 
-                    <span id="character-status">Alive</span> 
+            <div class="content-characters hide" id="characteres">
+                <div class="inf-episode" id="info-episode">
+                    <!-- content of episode and season -->
+                    <h1>Hello Friends! Click any episode at left 😬</h1>
+                    <p>All the characteres of need to know about Rick & Morty</p>
+                   
+                </div>
+                    
+                <div class="episode">
+                    <!-- content of characters -->
+                </div>
+               
                 </div>
             </div>
         </section>
