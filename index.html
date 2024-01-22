@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PROJECT RICK & MORTY</title>
+    <title>PROJECT RICK & MORTY API</title>
+    <link rel="icon" href="./assets/favicon-rick-morty.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">
@@ -21,30 +22,38 @@
                 <h2>Episodes</h2>
             </div>
             <ul id="episodes">
-                <!-- Listado dinamico con los capitulos -->        
+            <!-- BUTTON LIST OF EPISODES-->        
             </ul>
             <button class="load-more" id="loadMore">Load more...</button>
         </aside>
-        <!-- CONTENIDO DINAMICO DE LA WEB -->
+            <!-- DINAMIC CHANGING CONTENT -->
         <section>
             <div class="content-intro" id="intro">
-                <h1>Welcome to Rick and Morty characters info</h1>
-                <p>Everthing you need to know aobut the characters</p>
-                <img src="assets/intro-rick-and-mory-web-api.png">
+                 
+                <!-- WELCOME MESSAGE -->
+                <div class="content-welcome">
+
+                    <div class="image">
+                        <img src="assets/Rick-And-Morty.webp" height="500px">
+                    </div>
+
+                    <div class="title">
+                        <h1>Welcome to Rick and Morty characters info</h1>
+                        <p>Everthing you need to know about the characters</p>
+                    </div>
+                </div>
              </div>
-            <!-- Div que cambiaran según se pulse el episodio -->
+
+            <!-- DESCRIPTION EPISODES AND CHARACTERS -->
             <div class="content-characters hide" id="characteres">
                 <div class="inf-episode" id="info-episode">
                     <!-- content of episode and season -->
-                    <h1>Hello Friends! Click any episode at left 😬</h1>
-                    <p>All the characteres of need to know about Rick & Morty</p>
-                   
-                </div>
+                   </div>
                     
                 <div class="episode">
                     <!-- content of characters -->
                 </div>
-               
+
                 </div>
             </div>
         </section>

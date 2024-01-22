@@ -3,28 +3,30 @@ import { Main, Info, Episode, DataCharacteres } from "./interfaces";
 
 const urlRM = 'https://rickandmortyapi.com/api/episode';
 
+//LOAD BUTTONS
 async function printTitle(url:string) {
 
+
+
+  //Call API
   const data = await fetch(url);
   const JSONdata:Main = await data.json();
   const episodes:Episode[] = JSONdata.results;
 
 
+  //Variables to use
   const episodesList = document.getElementById('episodes') as HTMLUListElement;
   const nextBtn = document.getElementById('loadMore') as HTMLButtonElement;
 
 
-  //carga de episodios y boton cargar
+  //Load Episodes
   episodes.forEach((e) => {
     episodesList.insertAdjacentHTML('beforeend', `<li id="episode-${e.id}" episodeURL="${e.url}">${e.name}</li>`);
     const chargeCharacter = document.getElementById(`episode-${e.id}`) as HTMLLIElement ;
-    chargeCharacter.addEventListener("click", getCharacteres);
-    //aqui poner la orden de eliminar y poner estilo display none
-    
+    chargeCharacter.addEventListener("click", getCharacteres)    
+ });
 
-  });
-
-  //Enterearme de esto mejor BOTON PAGINADO
+  // Button Load more
   if (JSONdata.info.next) {
     nextBtn.addEventListener('click', () => {
         printTitle(JSONdata.info.next);
@@ -40,7 +42,7 @@ async function printTitle(url:string) {
 printTitle(urlRM);
 
 
-//cargar personajes del episodio
+// LOAD CHARACTERS
 async function getCharacteres(clickBtn: MouseEvent) {
 
   const target = clickBtn.target as HTMLLIElement;
@@ -71,7 +73,8 @@ async function getCharacteres(clickBtn: MouseEvent) {
                     <img src=${JSONdata.image}>
                     <h3>${JSONdata.name}</h3>
                     <span>${JSONdata.species}</span> | 
-                    <span>${JSONdata.status}</span> 
+                    <span>${JSONdata.status}</span>
+                    <p>${JSONdata.gender}</p> 
                     </div>`;
 
     const wherePrint = document.getElementById("characteres") as HTMLDivElement;

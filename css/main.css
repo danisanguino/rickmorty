@@ -36,11 +36,14 @@ main {
     align-content: space-between;
 }
 
+/* ASIDE */
 main aside {
     width: 30%;
     height: calc(100vh - 12rem);
     overflow-y: auto;
+    background-color: white;
 }
+
 
 /* Scrollbar styles */
 aside::-webkit-scrollbar {
@@ -82,7 +85,7 @@ main aside li {
     align-items: center;
     justify-content: left;
     list-style: none;
-    transition: background-color 0.3s ease;
+    transition: all 0.2s;
     cursor: pointer;
     border-bottom: 1px solid white;
 }
@@ -95,7 +98,12 @@ main aside a {
 
 main aside li:hover {
     background-color: #128da0;
+    transform: translate(0%, 5px);
 
+}
+
+main aside li:active {
+    background-color: var(--green);
 }
 
 main aside button {
@@ -114,24 +122,20 @@ main aside button:hover {
     background-color: black;
 }
 
-/* CHANGE SECTION */
+/* --CONTENT CHANGING SECTION-- */
 
 section {
     width: 100%;
-    background-image: url(../assets/rickmorty-bg.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
     display: flex;
-    
-
 }
 
 
-/* TITLES AND EPISODES */
+
 section .hide {
     display: none;
 }
+
+/* WELCOME PAGE */
 
 section .content-intro {
     width: 100%;
@@ -142,20 +146,20 @@ section .content-intro {
     text-align: center;
 }
 
-::-webkit-scrollbar {
-    width: 12px;
-  }
+section .content-welcome {
+    display: flex;
+}
 
-::-webkit-scrollbar-thumb {
-    background-color: var(--bg-scroll-grey); 
-    border-radius: 5px; 
-  }
+section .content-welcome .image {
+    width: 30%;
+    text-align: right;
+}
 
-::-webkit-scrollbar-track {
-    background-color: var(--bg-grey);
-  }
+section .content-welcome .title {
+    width: 70%;
+}
 
-section .content-intro h1 {
+section .content-welcome h1 {
     font-size: 4rem;
     line-height: 1.4em;
     font-family: 'RickMorty';
@@ -164,6 +168,11 @@ section .content-intro h1 {
     margin-top: 4rem;
 }
 
+section .content-welcome p {
+    font-size: 1.7rem;
+}
+
+/* TITLES AND EPISODES CHARACTER DINAMIC */
 .content-characters {
     height: calc(100vh - 21rem);
     overflow-y: auto;
@@ -184,7 +193,7 @@ section .content-intro h1 {
   }
 
 .content-characters::-webkit-scrollbar-thumb {
-    background-color: var(--bg-scroll-grey); 
+    background-color: var(--primary-color); 
     border-radius: 5px; 
   }
 
@@ -227,16 +236,115 @@ section .content-intro h1 {
 
 .content-characters .episode img {
     width: 100%;
-    border-radius: 8px;
 }
 
 .content-characters .episode h3{
     font-size: 1.2rem;
     color: var(--secondary-color);
+    margin-bottom: 0.3rem;
 
 }
 
 
+/* TABLET MODE */
+@media (max-width: 960px) {
 
+    header {
+        max-width: 100%;
+        height: 13rem;
+        margin: 0 auto;
+    }
 
+    header img {
+        width: 60%;
+    }
 
+    main {
+        max-width: 100;
+        margin: 0 auto;
+        display:block;
+        align-content: space-between;
+    }
+
+    main aside {
+        width: 100%;
+        height: 24rem;
+        overflow-y: auto;
+    }
+
+    section .content-intro {
+        height: 100%;
+        margin: 0rem;
+        padding: 1.5rem;
+
+    }
+
+    .content-characters {
+        height: 100%;
+        margin: 0rem;
+        padding: 1.5rem;
+    }
+
+}
+
+/* MOBILE MODE */
+@media (max-width: 480px) {
+
+    header {
+        max-width: 100%;
+        height: 8rem;
+        margin: 0 auto;
+    }
+
+    header img {
+        width: 80%;
+    }
+
+    main aside {
+        width: 100%;
+        height: 13rem;
+        overflow-y: auto;
+    }
+
+    main aside li {
+        height: 3rem;
+    }
+
+    main aside .tittle-episodes {
+        height: 3.5rem;   
+    }
+
+    section .content-intro .content-welcome {
+        flex-flow: row wrap;
+    }
+
+    section .content-intro h1 {
+        font-size: 2rem;
+    }
+
+    section .content-intro p {
+        font-size: 1rem;
+    }
+
+    section .content-intro .image {
+        width: 30%;
+        text-align: center;
+    }
+
+    section .content-intro .image img {
+        height: 200px;
+        margin-top: 30px;
+    } 
+
+    section .content-intro .title {
+        width: 70%;
+    }
+
+    .content-characters .inf-episode h1 {
+        font-size: 2rem;
+        line-height: 1.5em;
+        font-family: 'RickMorty';
+        color: var(--green);
+        text-shadow: -1px -1px 0 black, 2px -1px 0 black, -1px 2px 0 black, 1px 1px 0 black; 
+    }
+}

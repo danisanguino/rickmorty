@@ -52,7 +52,8 @@ function getCharacteres(clickBtn) {
                     <img src=${JSONdata.image}>
                     <h3>${JSONdata.name}</h3>
                     <span>${JSONdata.species}</span> | 
-                    <span>${JSONdata.status}</span> 
+                    <span>${JSONdata.status}</span>
+                    <p>${JSONdata.gender}</p> 
                     </div>`;
             const wherePrint = document.getElementById("characteres");
             wherePrint.insertAdjacentHTML("beforeend", infoCharacterPrint);
