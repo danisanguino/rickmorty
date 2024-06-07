@@ -1,7 +1,21 @@
-Creation of a portal completely from 0 with a third party API, of the Rick and Morty series where the user clicks on an episode shown in a button panel and the name of the episode, day of broadcast and season appears.
+`#typescript``#API` `#CSS`
+
+<h2>🎬 Rick & Morty Characters Info</h2>
+
+<img src="https://res.cloudinary.com/drp3zy62g/image/upload/v1717745393/rickymorty_zp3fng.png"/>
+
+<h3>Project Description</h3>
+
+Rick & Morty Characters Info is a web application built using TypeScript that fetches data from an external API. The application allows users to click on the name of an episode and view a list of characters appearing in that episode.
+
+<h3>Features</h3>
+
+- **TypeScript**: The project is fully developed using TypeScript, ensuring strong typing and better code management.
+- **External API Calls**: Fetches data from the Rick & Morty API to provide up-to-date information on episodes and characters.
+- **User Interaction**: Users can click on an episode name to view the list of characters featured in that episode.
+
 
 I have done this work for 7 days.
-
 
 DAY 1 16-1-24
 
