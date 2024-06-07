@@ -1,4 +1,4 @@
-`#typescript``#API` `#CSS`
+`#typescript` `#API` `#CSS`
 
 <h2>🎬 Rick & Morty Characters Info</h2>
 
@@ -15,10 +15,9 @@ Rick & Morty Characters Info is a web application built using TypeScript that fe
 - **User Interaction**: Users can click on an episode name to view the list of characters featured in that episode.
 
 
-I have done this work for 7 days.
+📅 I have done this work for 7 days.
 
 DAY 1 16-1-24
-
 Reading all the documentation and parts of the project, outline of requirements and extras in a notebook.
 Creation of repository in GITHUB and creation and configuration of the project in my local.
 Linking with GITHUB terminal and my computer.
